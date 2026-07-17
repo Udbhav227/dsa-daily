@@ -16,7 +16,7 @@ public class CountSubsetSum {
     }
 
     for (int i = 1; i <= n; i++) {
-      for (int j = 1; j <= target; j++) {
+      for (int j = 0; j <= target; j++) {
         if (nums[i - 1] <= j) {
           dp[i][j] = dp[i - 1][j] + dp[i - 1][j - nums[i - 1]];
         } else {
