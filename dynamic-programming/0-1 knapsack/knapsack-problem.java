@@ -59,3 +59,16 @@ public class KnapsackProblem {
     return dp[n][W];
   }
 }
+
+// Space optimisation (use this)
+
+public static int knapsack1D(int[] wt, int[] val, int W) {
+    int[] dp = new int[W + 1];
+    
+    for (int i = 0; i < wt.length; i++) {
+        for (int j = W; j >= wt[i]; j--) {
+            dp[j] = Math.max(dp[j], val[i] + dp[j - wt[i]]);
+        }
+    }
+    return dp[W];
+}
