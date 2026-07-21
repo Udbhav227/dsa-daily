@@ -26,30 +26,21 @@ private static int LCS(String x, String y, int n, int m) {
 }
 
 // bottom-up or tabulation 
-public class LongestCommonSubsequence {
+public int longestCommonSubsequence(String text1, String text2) {
+  int m = text1.length();
+  int n = text2.length();
 
-    public static int LCS(String x, String y) {
-        int n = x.length();
-        int m = y.length();
+  int[][] dp = new int[m + 1][n + 1];
 
-        int[][] dp = new int[n + 1][m + 1];
-
-        for (int i = 0; i <= n; i++) {
-            for (int j = 0; j <= m; j++) {
-                if (i == 0 || j == 0) {
-                    dp[i][j] = 0;
-                } 
-                // Matching character: add 1 to diagonal value
-                else if (x.charAt(i - 1) == y.charAt(j - 1)) {
-                    dp[i][j] = 1 + dp[i - 1][j - 1];
-                } 
-                // Mismatch: take the maximum of skipping a char from x or y
-                else {
-                    dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
-                }
-            }
-        }
-
-        return dp[n][m];
+  for (int i = 1; i <= m; i++) {
+    for (int j = 1; j <= n; j++) {
+      if (text1.charAt(i - 1) == text2.charAt(j - 1)) {
+        dp[i][j] = 1 + dp[i - 1][j - 1];
+      } else {
+        dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+      }
     }
+  }
+
+  return dp[m][n];
 }
