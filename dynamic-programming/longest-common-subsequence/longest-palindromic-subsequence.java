@@ -22,3 +22,7 @@ public class LongestPalindromicSubsequence {
         return dp[m][n];
     }
 }
+
+
+// # of insertion to make a string palidrome = str.length() - LPS(str)
+// # of deletion to make a string palidrome = str.length() - LPS(str)
