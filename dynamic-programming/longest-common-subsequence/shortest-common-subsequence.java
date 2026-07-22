@@ -1,5 +1,5 @@
 // while backtracking append the char you are leaving the row or col of
-
+// length is m + n - dp[m][n]
 public String shortestCommonSupersequence(String str1, String str2) {
   int m = str1.length();
   int n = str2.length();
